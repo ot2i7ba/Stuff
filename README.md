@@ -1,2 +1,3 @@
-# Stuff
-Trial and error - snippets, tools and tests, including uncut code debacle of a newbie.
+
+## pinkungfu.py
+Automatic generation of text files for cracking PIN and pattern combinations using bruteforce for import into forensic software.
