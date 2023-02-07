@@ -4,7 +4,7 @@ import os
 # Terminal löschen
 os.system('cls' if os.name == 'nt' else 'clear')
 
-def patternpinkungfu(length, include_digits, include_lowercase, include_uppercase, include_zero, allow_double_digits):
+def pinkungfu(length, include_digits, include_lowercase, include_uppercase, include_zero, allow_double_digits):
 
     # Zeichensatz definieren
     characters = ""
@@ -30,8 +30,9 @@ def write_combinations_to_file(combinations, filename):
 
 def main():
     # Benutzereingabe
-    print("PIN-KungFu by ot2i7ba")
+    print("PIN-KungFu by PP Hagen, KK23, IuK")
     print("-" * 80 + "\n")
+
     length = int(input("Eingabe der Zeichenlänge (3-16): "))
     include_digits = input("Berücksichtigung von Ziffern (0-9)? (y/n) ").lower() == "y"
     include_lowercase = input("Berücksichtigung von Kleinbuchstaben (a-z)? (y/n) ").lower() == "y"
@@ -40,7 +41,7 @@ def main():
     allow_double_digits = input("Kombinationen mit Duplikaten erlauben? (y/n) ").lower() == "y"
 
     # Kombinationen generieren
-    combinations = list(patternpinkungfu(length, include_digits, include_lowercase, include_uppercase, include_zero, allow_double_digits))
+    combinations = list(pinkungfu(length, include_digits, include_lowercase, include_uppercase, include_zero, allow_double_digits))
 
     # Kombinationen Anzahl insgesamt
     print(f"Es wurden {len(combinations)} Kombinationen generiert.")
