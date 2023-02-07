@@ -30,7 +30,7 @@ def write_combinations_to_file(combinations, filename):
 
 def main():
     # Benutzereingabe
-    print("PIN-KungFu by PP Hagen, KK23, IuK")
+    print("PIN-KungFu by ot2i7ba")
     print("-" * 80 + "\n")
 
     length = int(input("Eingabe der Zeichenlänge (3-16): "))
