@@ -1,12 +1,10 @@
 import itertools
 import os
 
-# Terminal löschen
 os.system('cls' if os.name == 'nt' else 'clear')
 
-def pinkungfu(length, include_digits, include_lowercase, include_uppercase, include_zero, allow_double_digits):
-
-    # Zeichensatz definieren
+# Defining character set
+def pinkungfu(length, include_digits, include_lowercase, include_uppercase, include_special, include_zero, allow_double_digits):
     characters = ""
     if include_digits:
         characters += "0123456789"
@@ -14,48 +12,90 @@ def pinkungfu(length, include_digits, include_lowercase, include_uppercase, incl
         characters += "abcdefghijklmnopqrstuvwxyz"
     if include_uppercase:
         characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    
-    # Ausschlußregelung
+    if include_special:
+        characters += "!@#$%&*"
+
+    # Definition of exclusion rules
     combinations = itertools.product(characters, repeat=length)
-    if not allow_double_digits and include_digits:
-        combinations = [combination for combination in combinations if len(set(combination)) == length]
-    if not include_zero:
-        combinations = [combination for combination in combinations if "0" not in combination]
+    combinations = filter(lambda x: len(set(x)) == length or allow_double_digits, combinations)
+    combinations = filter(lambda x: "0" in x or include_zero, combinations)
+
     return combinations
 
-def write_combinations_to_file(combinations, filename):
-    with open(filename, "w") as f:
-        for combination in list(combinations):
-            f.write("".join(combination) + "\n")
+# Write possible combinations in text file and split
+def write_combinations_to_file(combinations, filename, chunk_size=100000):
+    chunk = 0
+    for i, combination in enumerate(list(combinations)):
+        if i % chunk_size == 0:
+            chunk += 1
+            f = open(f"{filename}_{chunk}.txt", "w")
+        f.write("".join(combination) + "\n")
+    f.close()
 
+# PIN-KungFu
 def main():
-    # Benutzereingabe
-    print("PIN-KungFu by ot2i7ba")
+    print("\n" + "PIN-KungFu by ot2i7ba")
     print("-" * 80 + "\n")
 
-    length = int(input("Eingabe der Zeichenlänge (3-16): "))
-    include_digits = input("Berücksichtigung von Ziffern (0-9)? (y/n) ").lower() == "y"
-    include_lowercase = input("Berücksichtigung von Kleinbuchstaben (a-z)? (y/n) ").lower() == "y"
-    include_uppercase = input("Berücksichtigung von Großbuchstaben (A-Z)? (y/n) ").lower() == "y"
-    include_zero = input("Kombinationen mit Nullen (0) erlauben? (y/n) ").lower() == "y"
-    allow_double_digits = input("Kombinationen mit Duplikaten erlauben? (y/n) ").lower() == "y"
+    # Set the character length
+    try:
+        length = int(input("Enter the length of the PIN (3-16): "))
+        if length < 3 or length > 16:
+            raise ValueError
+    except ValueError:
+        print("Invalid input. Enter a valid length.")
+        return
 
-    # Kombinationen generieren
-    combinations = list(pinkungfu(length, include_digits, include_lowercase, include_uppercase, include_zero, allow_double_digits))
+    if length >= 5:
+        print("Warning: The calculation may take a long time.")
+        proceed = ""
+        while proceed != "y" and proceed != "n":
+            proceed = input("Do you want to proceed anyway? (y/n) ").lower()
+        if proceed != "y":
+            raise Exception("Program was canceled by user.")
 
-    # Kombinationen Anzahl insgesamt
-    print(f"Es wurden {len(combinations)} Kombinationen generiert.")
+    include_digits = ""
+    while include_digits != "y" and include_digits != "n":
+        include_digits = input("Include digits (0-9)? (y/n) ").lower()
+    include_digits = include_digits == "y"
+    
+    include_lowercase = ""
+    while include_lowercase != "y" and include_lowercase != "n":
+        include_lowercase = input("Include lowercase letters (a-z)? (y/n) ").lower()
+    include_lowercase = include_lowercase == "y"
+    
+    include_uppercase = ""
+    while include_uppercase != "y" and include_uppercase != "n":
+        include_uppercase = input("Include uppercase letters (A-Z)? (y/n) ").lower()
+    include_uppercase = include_uppercase == "y"
+    
+    include_special = ""
+    while include_special != "y" and include_special != "n":
+        include_special = input("Include special characters (!@#$%^&*)? (y/n) ").lower()
+    include_special = include_special == "y"
 
-    # Benutzereingabe des Dateinamens
-    filename = input("Dateiname eingeben: ")
+    include_zero = ""
+    while include_zero != "y" and include_zero != "n":
+        include_zero = input("Allow combinations with zeros (0)? (y/n) ").lower()
+    include_zero = include_zero == "y"
+    
+    allow_double_digits = ""
+    while allow_double_digits != "y" and allow_double_digits != "n":
+        allow_double_digits = input("Allow combinations with duplicates? (y/n) ").lower()
+    allow_double_digits = allow_double_digits == "y"
 
-    # Dateierweiterung anhängen
-    if not filename.endswith(".txt"):
-       filename += ".txt"
+    combinations = list(pinkungfu(length, include_digits, include_lowercase, include_uppercase, include_special, include_zero, allow_double_digits))
 
-    # Kombinationen schreiben
+    # Print sum of possible combinations
+    print(f"{len(combinations)} combinations were generated.")
+
+    # Create custom text file
+    filename = input("Enter the file name: ")
+    #if not filename.endswith(".txt"):
+        #filename += ".txt"
+
     write_combinations_to_file(combinations, filename)
-    print(f"Datei {filename} wurde erstellt.")
+    print(f"File {filename} was created.")
 
 if __name__ == "__main__":
     main()
