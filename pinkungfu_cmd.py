@@ -24,13 +24,23 @@ def pinkungfu(length, include_digits, include_lowercase, include_uppercase, incl
 
 # Write possible combinations in text file and split
 def write_combinations_to_file(combinations, filename, chunk_size=100000):
-    chunk = 0
-    for i, combination in enumerate(list(combinations)):
-        if i % chunk_size == 0:
-            chunk += 1
-            f = open(f"{filename}_{chunk}.txt", "w")
-        f.write("".join(combination) + "\n")
-    f.close()
+    split_file = ""
+    while split_file != "y" and split_file != "n":
+        split_file = input("Do you want to split the generated text file? (y/n) ").lower()
+    if split_file == "n":
+        f = open(f"{filename}.txt", "w")
+        for combination in list(combinations):
+            f.write("".join(combination) + "\n")
+        f.close()
+    else:
+        chunk = 0
+        chunk_size = int(input("Enter the chunk size: "))
+        for i, combination in enumerate(list(combinations)):
+            if i % chunk_size == 0:
+                chunk += 1
+                f = open(f"{filename}_{chunk}.txt", "w")
+            f.write("".join(combination) + "\n")
+        f.close()
 
 # PIN-KungFu
 def main():
@@ -58,17 +68,17 @@ def main():
     while include_digits != "y" and include_digits != "n":
         include_digits = input("Include digits (0-9)? (y/n) ").lower()
     include_digits = include_digits == "y"
-    
+
     include_lowercase = ""
     while include_lowercase != "y" and include_lowercase != "n":
         include_lowercase = input("Include lowercase letters (a-z)? (y/n) ").lower()
     include_lowercase = include_lowercase == "y"
-    
+
     include_uppercase = ""
     while include_uppercase != "y" and include_uppercase != "n":
         include_uppercase = input("Include uppercase letters (A-Z)? (y/n) ").lower()
     include_uppercase = include_uppercase == "y"
-    
+
     include_special = ""
     while include_special != "y" and include_special != "n":
         include_special = input("Include special characters (!@#$%^&*)? (y/n) ").lower()
@@ -78,7 +88,7 @@ def main():
     while include_zero != "y" and include_zero != "n":
         include_zero = input("Allow combinations with zeros (0)? (y/n) ").lower()
     include_zero = include_zero == "y"
-    
+
     allow_double_digits = ""
     while allow_double_digits != "y" and allow_double_digits != "n":
         allow_double_digits = input("Allow combinations with duplicates? (y/n) ").lower()
