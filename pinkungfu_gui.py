@@ -12,7 +12,7 @@ def pinkungfu(length, include_digits, include_lowercase, include_uppercase, incl
     if include_uppercase:
         characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     if include_special:
-        characters += "!@#$%&*"
+        characters += "!@#$%&*" # Modify as needed
 
     # Definition of exclusion rules
     combinations = itertools.product(characters, repeat=length)
@@ -46,7 +46,10 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        self.header_label = tk.Label(self, text="PIN-KungFu by ot2i7ba", font=("TkDefaultFont", 14))
+        self.header_label = tk.Label(self, text="PIN-KungFu", font=("TkDefaultFont", 14))
+        self.header_label.pack()
+
+        self.header_label = tk.Label(self, text="Generate PIN Combinations", font=("TkDefaultFont", 12))
         self.header_label.pack()
 
         self.line = tk.Frame(self, height=2, width=300, bd=300, relief="solid")
@@ -61,6 +64,7 @@ class Application(tk.Frame):
         self.empty_line.pack()
 
         self.include_digits_var = tk.BooleanVar()
+        self.include_digits_var.set(True)
         self.include_digits_check = tk.Checkbutton(self, text="Include digits (0-9)?", variable=self.include_digits_var)
         self.include_digits_check.pack()
         
@@ -112,11 +116,19 @@ class Application(tk.Frame):
         self.empty_line = tk.Label(self, text="")
         self.empty_line.pack()
 
+        self.footer_label = tk.Label(self, text="Copyright 2023 by ot2i7ba", font=("TkDefaultFont", 10), anchor="w", foreground="gray")
+        self.footer_label.pack(side="bottom")
+
+    # Check length of PIN
     def generate(self):
         try:
             length = int(self.length_entry.get())
             if length < 3 or length > 16:
                 raise ValueError
+            elif length >= 4:
+                result = messagebox.askyesno("Warning", "Generating combinations for a length of 4 or higher may take a long, long time. Do you want to continue?")
+                if not result:
+                    return
         except ValueError:
             messagebox.showerror("Error", "Invalid input. Enter a valid length.")
             return
@@ -128,6 +140,11 @@ class Application(tk.Frame):
         include_zero = self.include_zero_var.get()
         allow_double_digits = self.allow_double_digits_var.get()
 
+        # Check for empty checkboxes
+        if not (include_digits or include_lowercase or include_uppercase or include_special):
+            messagebox.showerror("Error", "At least one character set must be selected.")
+            return
+
         combinations = list(pinkungfu(length, include_digits, include_lowercase, include_uppercase, include_special, include_zero, allow_double_digits))
         print(f"{len(combinations)} combinations were generated.")
 
@@ -137,9 +154,16 @@ class Application(tk.Frame):
         except:
             pass
 
+        # Check for empty filename
         filename = self.filename_entry.get()
+        if not filename:
+            messagebox.showerror("Error", "Please enter a file name.")
+            return
+
         write_combinations_to_file(combinations, filename, chunk_size)
 
 root = tk.Tk()
+root.geometry("365x565")
+root.title("PIN-KungFu v0.6 (20230213)")
 app = Application(master=root)
 app.mainloop()
