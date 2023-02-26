@@ -1,0 +1,7 @@
+javascript:(async function() {
+  const url = encodeURI(window.location.href);
+  const response = await fetch(`https://url.to.script/favorites.php?url=${url}`);
+  if (response.ok) {
+    alert('URL successfully submitted!');
+  }
+})();
