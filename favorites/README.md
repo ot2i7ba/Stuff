@@ -1,2 +1,2 @@
-## favorites
+# favorites
 A simple PHP script which stores URLs submitted via bookmarklet. The URLs are stored in a text file, not in a database. By using a lockfile it tries to intercept write errors of the text file by multiple requests. Duplicate entries are intercepted as far as possible. Requests are limited as far as possible and clickjacking is prevented by means of X-Frame-Option-Headers. The script serves me in combination with the bookmarklet as a quick note possibility to read web pages later.
