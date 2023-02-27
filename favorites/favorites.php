@@ -3,6 +3,7 @@
  * Script to store URLs submitted via bookmarklet
  *
  * @copyright (c) 2023 ot2i7ba
+ * https://github.com/ot2i7ba/
  * @license MIT License
  */
 
