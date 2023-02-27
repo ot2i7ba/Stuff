@@ -1,4 +1,9 @@
-# By ot2i7ba 2023-02-27
+# Copyright (c) 2023 ot2i7ba
+# This code is licensed under the MIT License (see LICENSE for details).
+
+"""
+Imports a CSV file to generate an interactive map using plotly.
+"""
 
 import pandas as pd
 import plotly.express as px
