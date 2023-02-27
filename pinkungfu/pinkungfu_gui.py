@@ -1,3 +1,11 @@
+# Copyright (c) 2023 ot2i7ba
+# https://github.com/ot2i7ba/
+# This code is licensed under the MIT License (see LICENSE for details).
+
+"""
+Generates possible PIN combinations based on user input.
+"""
+
 import itertools
 import os
 import tkinter as tk
