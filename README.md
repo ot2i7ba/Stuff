@@ -3,3 +3,6 @@ A simple PHP script which stores URLs submitted via bookmarklet. The URLs are st
 
 # pinkungfu [&#8594;](pinkungfu)
 A Python script that generates possible PIN combinations based on user input and writes them to a text file. The output file can be splitted if desired. The generated text files can be imported into forensic software such as from Cellebrite to be used for bruteforce methods.
+
+# plotlyimex [&#8594;](plotlyimex)
+The script imports a CSV file to display position data in an interactive map using plotly. The map is displayed by OpenStreetMap and saved in HTML format. The generated HTML file opens automatically. The user can specify a filename of the import and/or export file if desired.
