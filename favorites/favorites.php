@@ -1,5 +1,10 @@
 <?php
-// Simple Bookmarklet Web-Link-Tracker by ot2i7ba
+/**
+ * Script to store URLs submitted via bookmarklet
+ *
+ * @copyright (c) 2023 ot2i7ba
+ * @license MIT License
+ */
 
 // Starting session
 session_start();
