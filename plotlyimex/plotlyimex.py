@@ -28,13 +28,25 @@ else:
     # Import CSV file
     df = pd.read_csv(csv_file)
 
-    # Create map using OpenStreetMap
+    # Create map using scatter plot
     fig = px.scatter_mapbox(df, lat="latitude", lon="longitude", hover_name="id",
                             hover_data=["userId", "lastSeenAt", "speed", "direction", "source"],
                             zoom=3)
 
-    #fig.update_layout(mapbox_style="open-street-map", height=1080, width=1920)
-    fig.update_layout(mapbox_style="carto-darkmatter", height=1080, width=1920)
+    '''
+    # Create map using density plot
+    fig = px.density_mapbox(df, lat="latitude", lon="longitude", hover_name="id",
+                            hover_data=["userId", "lastSeenAt", "speed", "direction", "source"],
+                            zoom=3)
+
+    # Create map using lines plot
+    fig = px.line_geo(df, lat="latitude", lon="longitude", hover_name="id",
+                      hover_data=["userId", "lastSeenAt", "speed", "direction", "source"],
+                      projection="orthographic")
+    '''
+
+    fig.update_layout(mapbox_style="open-street-map", height=1080, width=1920)
+    #fig.update_layout(mapbox_style="carto-darkmatter", height=1080, width=1920)
 
     # Scale the height and width to 90%
     # fig.update_layout(height=0.9*fig.layout.height, width=0.9*fig.layout.width)
@@ -49,3 +61,4 @@ else:
     # Display or save plot
     pio.show(fig)
     pio.write_html(fig, file=html_file)
+    
