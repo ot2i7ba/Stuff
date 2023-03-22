@@ -24,7 +24,7 @@ Considering the fact that no database is used, the performance is only acceptabl
 ### How it works?
 Example. If you want to watch your favorite YouTube video later, call it up and click on the bookmarklet [4, 5, 6] you just created. The bookmarklet sends the title of your video and the URL to the video to your Simple Bookmarklet Web-Link-Tracker [1, 2, 3] and is stored there after verification in the "**favorites.json**". Later you can view the saved URLs by calling the link to your Simple Bookmarklet Web-Link-Tracker including your personal magic word. This may look like this:
 
-- https://YOUR_DOMAIN_HERE.COM/favorites.php?secret"YOUR_SECRET_VALUE_HERE"
+- https://YOUR_DOMAIN_HERE.COM/favorites.php?secret=YOUR_SECRET_VALUE_HERE
 
 ### What else?
 You could place the sample "**.htaccess**" file where you saved the other files. This prevents direct access to the favorites.json, favorites.lock, intruder.json and blacklist.txt files, for example. Additionally, the set headers are supposed to prevent clickjacking. Well, at least they should. It may be that the .htaccess needs other adjustments depending on how your server has been configured. Don't play around with it if you don't know anything about it. I hope I have not forgotten anything. Github is so exciting and still new to me. =)
