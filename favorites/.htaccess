@@ -1,0 +1,18 @@
+# Be sure to use HTTPS connections
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Limit the size of requests
+LimitRequestBody 102400
+
+# Protect from clickjacking
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
+
+# Deny direct access to these files
+<FilesMatch "(favorites.json|favorites.lock|intruder.json|blacklist.txt)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
