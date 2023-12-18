@@ -1,13 +1,9 @@
+# Copyright (c) 2023 ot2i7ba
+# https://github.com/ot2i7ba/
+# This code is licensed under the MIT License (see LICENSE for details).
+
 """
-GrayKey Password Cleaner [GPC] v0.1
-
-Description: This script processes a text file (passwords.txt) to extract and clean up a list of possible passwords based on user-defined criteria.
-
-Author: ot2i7ba
-
-Updated: 2023-12-18
-Copyright: 2023 ot2i7ba
-
+This script processes a text file (passwords.txt) to extract and clean up a list of possible passwords based on user-defined criteria.
 """
 
 import os
