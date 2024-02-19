@@ -26,7 +26,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 > [!NOTE]
 > **KAPE - Kroll Artifact Parser And Extractor, by Kroll**</br>
-> https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape
+> https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape</br>
 > **MFTECmd and TimelineExplorer, by Eric Zimmerman**</br>
 > https://ericzimmerman.github.io/#!index.md
 
