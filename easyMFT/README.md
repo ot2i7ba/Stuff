@@ -3,10 +3,10 @@
 The script aims to facilitate live forensic analysis on an active system by simplifying the use of the Master File Table (MFT). It allows on-site investigation of existing and former files based on MFT, enabling quick searches. This script is designed for scenarios where forensic analysts need to perform live investigations on active systems, leveraging the MFT for efficient file information retrieval.
 
 ### Advantages
-+ Administrative Rights Handling:</br>The script checks for administrative rights and restarts itself with elevated privileges if needed.
-+ Dynamic .NET Version Detection:</br>The script dynamically determines the installed .NET versions, adapting its behavior based on whether .NET 6 or higher is present.
-+ Hash Verification:</br>It calculates the MD5 hash of the script and verifies it against an expected value, ensuring script integrity.
-+ Informative Output:</br>The script provides detailed information about the system, .NET versions, hash values, and the execution path.
++ **Administrative Rights Handling**: </br>The script checks for administrative rights and restarts itself with elevated privileges if needed.
++ **Dynamic .NET Version Detection**: </br>Dynamically determines the installed .NET versions, adapting its behavior based on whether .NET is present.
++ **Hash Verification**: </br>It calculates the MD5 hash of the script and verifies it against an expected value, ensuring script integrity.
++ **Informative Output**: </br>The script provides detailed information about the system, .NET versions, hash values, and the execution path.
 
 ## EXECUTION GUIDELINES
 
