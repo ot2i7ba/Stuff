@@ -1,3 +1,6 @@
+# easyMFT [PowerShell] [&#8594;](favorites)
+The script aims to facilitate live forensic analysis on an active system by simplifying the use of the Master File Table (MFT). It allows on-site investigation of existing and former files based on MFT, enabling quick searches. This script is designed for scenarios where forensic analysts need to perform live investigations on active systems, leveraging the MFT for efficient file information retrieval.
+
 # favorites [PHP] [&#8594;](favorites)
 Simple Web-Link-Tracker is a simple script that saves URLs submitted via a bookmarklet. The saved links are stored in a JSON file. A session ID is used to avoid IP tracking. There are also some security measures to prevent unwanted access and blacklisting. Considering the fact that no database is used, the performance is only acceptable for a small number of URLs. However, performance may decrease for a large number of links, since the entire JSON array must be loaded and stored for each read or write. However, this is perfectly adequate for personal use.
 
