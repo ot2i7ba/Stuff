@@ -1,4 +1,4 @@
-# easyMFT [PowerShell] [&#8594;](favorites)
+# easyMFT [PowerShell] [&#8594;](easyMFT)
 The script aims to facilitate live forensic analysis on an active system by simplifying the use of the Master File Table (MFT). It allows on-site investigation of existing and former files based on MFT, enabling quick searches. This script is designed for scenarios where forensic analysts need to perform live investigations on active systems, leveraging the MFT for efficient file information retrieval.
 
 # favorites [PHP] [&#8594;](favorites)
