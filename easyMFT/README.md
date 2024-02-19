@@ -37,16 +37,16 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 .\kape.exe --tsource [SOURCE] --target FileSystem --tdest [TARGET] --vhdx
 ```
 
-SOURCE = source $MFT, usually C:\, D:\ etc.
-TARGET = target directory, where should the dump be stored?
+SOURCE = source $MFT, usually C:\, D:\ etc.</br>
+TARGET = target directory, where should the dump be stored?</br>
 
 ### MFTECMD
 ```powershell
 MFTECmd.exe --f [SOURCE]\$MFT --csv [TARGET] --csvf [FILE].csv
 ```
 
-SOURCE = Where is the previously created $MFT dump located?
-TARGET = Where should the CSV file be saved?
+SOURCE = Where is the previously created $MFT dump located?</br>
+TARGET = Where should the CSV file be saved?</br>
 FILE = How should the CSV file be saved?
 
 ## DELETED FILES NOTES
