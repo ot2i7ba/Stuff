@@ -1,5 +1,4 @@
 # KAPE (KROLL) Easy MFT Extract Script
-
 The script aims to facilitate live forensic analysis on an active system by simplifying the use of the Master File Table (MFT). It allows on-site investigation of existing and former files based on MFT, enabling quick searches. This script is designed for scenarios where forensic analysts need to perform live investigations on active systems, leveraging the MFT for efficient file information retrieval.
 
 ### Advantages
@@ -42,7 +41,7 @@ SOURCE = Where is the previously created $MFT dump located?
 TARGET = Where should the CSV file be saved?
 FILE = How should the CSV file be saved?
 
-## DELETED FILES
+## DELETED FILES NOTES
 The Master File Table (MFT) of an NTFS file system can actually contain entries for previously existing (deleted) files. These files are no longer actively present in the file system, but information about them may still be present in the MFT until the specific MFT entry is overwritten. This is particularly useful in forensic investigations as it can provide insight into previous activity on a drive. When viewing the MFT with tools such as Eric Zimmerman's TimelineExplorer (EZ Tools), deleted files can be identified by certain characteristics:
 
 ### $I30-ENTRIES
