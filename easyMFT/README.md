@@ -1,5 +1,13 @@
 # KAPE (KROLL) Easy MFT Extract Script
 
+The script aims to facilitate live forensic analysis on an active system by simplifying the use of the Master File Table (MFT). It allows on-site investigation of existing and former files based on MFT, enabling quick searches. This script is designed for scenarios where forensic analysts need to perform live investigations on active systems, leveraging the MFT for efficient file information retrieval.
+
+### Advantages
++ Administrative Rights Handling: The script checks for administrative rights and restarts itself with elevated privileges if needed.
++ Dynamic .NET Version Detection: The script dynamically determines the installed .NET versions, adapting its behavior based on whether .NET 6 or higher is present.
++ Hash Verification: It calculates the MD5 hash of the script and verifies it against an expected value, ensuring script integrity.
++ Informative Output: The script provides detailed information about the system, .NET versions, hash values, and the execution path.
+
 ## EXECUTION GUIDELINES
 
 ### TEMPORARILY CHANGE FOR SESSION
@@ -16,7 +24,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 ### DUMP MFT
 ```powershell
-.\kape.exe --tsource SOURCE --target FileSystem --tdest TARGET --vhdx
+.\kape.exe --tsource [SOURCE] --target FileSystem --tdest [TARGET] --vhdx
 ```
 
 SOURCE = source $MFT, usually C:\, D:\ etc.
@@ -24,7 +32,7 @@ TARGET = target directory, where should the dump be stored?
 
 ### MFTECMD
 ```powershell
-MFTECmd.exe --f SOURCE\$MFT --csv TARGET --csvf FILE.csv
+MFTECmd.exe --f [SOURCE]\$MFT --csv [TARGET] --csvf [FILE].csv
 ```
 
 SOURCE = Where is the previously created $MFT dump located?
