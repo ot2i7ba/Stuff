@@ -1,5 +1,4 @@
 # KAPE (KROLL) Easy MFT Extract Script
-==================================================
 
 ## EXECUTION GUIDELINES
 
@@ -16,13 +15,17 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ## MANUAL BACKUP
 
 ### DUMP MFT
+```powershell
 .\kape.exe --tsource SOURCE --target FileSystem --tdest TARGET --vhdx
+```
 
 SOURCE = source $MFT, usually C:\, D:\ etc.
 TARGET = target directory, where should the dump be stored?
 
 ### MFTECMD
+```powershell
 MFTECmd.exe --f SOURCE\$MFT --csv TARGET --csvf FILE.csv
+```
 
 SOURCE = Where is the previously created $MFT dump located?
 TARGET = Where should the CSV file be saved?
@@ -42,4 +45,3 @@ The TimelineExplorer and similar tools can sometimes show the status of a file, 
 
 ### SEQUENCE NUMBERS
 Timestamps such as date created, date last accessed, date last modified and date entered into the MFT can provide clues. Deleted files often retain their original timestamps. Sequence numbers in MFT entries can also provide clues. If a file is deleted and a new file with the same name is created, the sequence number of the MFT entry changes.
-
