@@ -19,7 +19,7 @@ A user with administrative rights can change the execution policy for their user
 
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
-## MANUAL BACKUP
+## MANUAL EXTRACT
 
 > [!CAUTION]
 > I am not the developer of Kape, MFTECmd and TimelineExplorer. Detailed documentation can be found at the developer.
