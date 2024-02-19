@@ -24,6 +24,12 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 > [!CAUTION]
 > I am not the developer of Kape, MFTECmd and TimelineExplorer. Detailed documentation can be found at the developer.
 
+> [!NOTE]
+> **KAPE - Kroll Artifact Parser And Extractor, by Kroll**
+> https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape
+> **MFTECmd and TimelineExplorer, by Eric Zimmerman**
+> https://ericzimmerman.github.io/#!index.md
+
 ### DUMP MFT
 ```powershell
 .\kape.exe --tsource [SOURCE] --target FileSystem --tdest [TARGET] --vhdx
