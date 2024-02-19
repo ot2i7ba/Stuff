@@ -1,6 +1,8 @@
 # KAPE (KROLL) Easy MFT Extract Script
 The script aims to facilitate live forensic analysis on an active system by simplifying the use of the Master File Table (MFT). It allows on-site investigation of existing and former files based on MFT, enabling quick searches. This script is designed for scenarios where forensic analysts need to perform live investigations on active systems, leveraging the MFT for efficient file information retrieval.
 
+The script extracts NTFS file system information with **kape.exe** and saves it in the Evidence directory. The individual extractions with timestamps are stored properly under Evidence. Then, as far as possible, $MFT, $LogFile and $J are prepared in a CSV file using **MFTECmd.exe**. These are saved in the extraction directory in the csv subdirectory. A simple log file is created in the root of the extraction directory. The created CSV files can then be viewed very easily with the TimelineExplorer. For this script to work correctly, Kape and MFTECmd must be downloaded from the respective developer and unpacked into the corresponding directories.
+
 ### Advantages
 + **Administrative Rights Handling**: </br>The script checks for administrative rights and restarts itself with elevated privileges if needed.
 + **Dynamic .NET Version Detection**: </br>Dynamically determines the installed .NET versions, adapting its behavior based on whether .NET is present.
