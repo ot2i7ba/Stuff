@@ -56,7 +56,7 @@ def process_file(source_file_path, output_file_path, prefix, min_length, max_len
 
 def main():
     clear_screen()
-    print("GrayKey Password Cleaner [GPC] v0.1")
+    print("GreyKey Password Cleaner [GPC] v0.1")
     print("========================================\n")
 
     prefix = input("Präfix für Zeilenfilter (Standard: 'Item value:'): ") or "Item value:"
