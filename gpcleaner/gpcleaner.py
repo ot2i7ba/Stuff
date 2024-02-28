@@ -3,7 +3,7 @@
 # This code is licensed under the MIT License (see LICENSE for details).
 
 """
-GrayKey Password Cleaner [GPC] v0.1
+GreyKey Password Cleaner [GPC] v0.1
 This script processes a text file (passwords.txt) to extract and clean up a list of possible passwords based on user-defined criteria.
 """
 
